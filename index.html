@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Grid with Controls</title>
+    <style>
+        #gridContainer {
+            display: grid;
+            border: 1px solid black;
+            grid-template-columns: repeat(auto-fill, minmax(50px, 1fr)); /* Create flexible columns */
+            grid-auto-rows: 50px; /* Set row height */
+        }
+
+        .gridCell {
+            border: 1px solid #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            transition: background-color 0.3s ease;
+        }
+
+        .gridCell:hover {
+            background-color: #f0f0f0; /* Change background on hover */
+            cursor: pointer;
+        }
+
+        .hoverInfo {
+            margin-top: 20px;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+        }
+
+        .controls {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="controls">
+        <label>Rows: <input type="number" id="rowsInput" value="10" min="1"></label>
+        <label>Columns: <input type="number" id="colsInput" value="10" min="1"></label>
+        <button id="updateGridBtn">Update Grid</button>
+    </div>
+
+    <div id="gridContainer"></div>
+
+    <div class="hoverInfo" id="hoverInfo">Hover over a cell to see coordinates here.</div>
+
+    <script src="grid.js"></script>
+</body>
+</html>
